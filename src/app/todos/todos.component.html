@@ -1,0 +1,36 @@
+<p>todos works!</p>
+<div class="container addtodoform">
+  <h3>Add a todo</h3>
+<div class="my-3">
+  <form [formGroup]= "submitForm" (ngSubmit)="onSubmit()" class = 'card p-3 bg-light shadow p-3 mb-5 bg-white rounded'>
+      <div class="mb-3">
+        <label for="title" class="form-label">Todo Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Todo Description</label>
+        <input type="text" class="form-control" id="desc" formControlName="desc">
+      </div>
+      <button type="submit" class="btn btn-sm btn-primary">Add Todo</button>
+    </form>
+  </div>
+</div>
+<div class="container my-3" *ngFor="let todo of todos">
+  <div class="card">
+    <div class="card-body" >
+      <h5 class="card-title">{{todo.Title}}</h5>
+      <p class="card-text">
+        {{todo.Desc}}
+        With supporting text below as a natural lead-in to additional content.
+      </p>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="onCheckboxClick(todo)">
+        <label class="form-check-label" for="flexCheckDefault">
+          Done
+        </label>
+      </div>
+      <button class="btn btn-sm btn-danger" (click)="onClick(todo)">Delete</button>
+      <!-- <a href="#" class="btn btn-primary" (click)="onClick(todo)">Delete</a> -->
+    </div>
+  </div>
+</div>
